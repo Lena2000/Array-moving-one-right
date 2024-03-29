@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayExample arrayExample = new ArrayExample();
+        arrayExample.runExample();
+    }
+
+    public static class ArrayExample {
+        public void runExample() {
+            // Creating of array from 1 to 5
+            int[] numbers = {4, 5, 6, 7};
+            System.out.println("Our original array: " + Arrays.toString(numbers));
+
+            // Moving of array for one position right
+            rotateArray(numbers);
+
+            System.out.println("Our rotated array: " + Arrays.toString(numbers));
+        }
+
+        // Method of moving of array for one position right
+        public static void rotateArray(int[] arr) {
+            int lastElement = arr[arr.length - 1];
+            for (int i = arr.length - 2; i >= 0; i--) {
+                arr[i + 1] = arr[i];
+            }
+            arr[0] = lastElement;
+        }
+    }
+}
+
